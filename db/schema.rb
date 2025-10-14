@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_10_12_063124) do
     t.integer "condition_id", null: false
     t.integer "shipping_fee_id", null: false
     t.integer "prefecture_id", null: false
-    t.integer "shipping_day_id", null: false
+    t.integer "shipment_day_id", null: false
     t.integer "price", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
