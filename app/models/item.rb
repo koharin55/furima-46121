@@ -22,5 +22,4 @@ class Item < ApplicationRecord
     less_than_or_equal_to: 9_999_999,
     message: 'must be between 300 and 9,999,999'
   }, presence: true
-  validates :user_id, presence: true
 end
