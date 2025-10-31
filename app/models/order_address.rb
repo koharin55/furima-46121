@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :zip, :prefecture_id, :city, :address, :building_name, :phone, :order, :item, :user
+  attr_accessor :zip, :prefecture_id, :city, :address, :building_name, :phone, :order, :item, :user_id
 
   with_options presence: true do
     validates :zip, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}# 1以上、1000000以下の整数を許可する
@@ -14,7 +14,7 @@ class OrderAddress
   end  
 
   def save
-    order = Order.create(item: item, user: user)
+    order = Order.create(item: item, user_id: user_id)
     Address.create(zip: zip, prefecture_id: prefecture_id, city: city, addres: address, building_name: building_name, phone: phone, order_id: order.id)
   end
 end
