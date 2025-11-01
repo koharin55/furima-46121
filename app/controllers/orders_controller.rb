@@ -1,11 +1,12 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_item, only: [:index, :create]
+
   def index
-    @item = Item.find(params[:item_id])
     @order_shipment = OrderShipment.new
   end
   
   def create
-    @item = Item.find(params[:item_id])
     @order_shipment = OrderShipment.new(order_params)
     if @order_shipment.valid?
       @order_shipment.save
@@ -17,6 +18,10 @@ class OrdersController < ApplicationController
 
 
   private
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
   def order_params
     params.require(:order_shipment).permit(:zip, :prefecture_id, :city, :address, :building_name, :phone, :item_id).merge(user_id: current_user.id)
   end

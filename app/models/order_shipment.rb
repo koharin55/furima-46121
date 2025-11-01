@@ -14,6 +14,6 @@ class OrderShipment
 
   def save
     order = Order.create(item_id: item_id, user_id: user_id)
-    ::Shipment.create(zip: zip, prefecture_id: prefecture_id, city: city, address: address, building_name: building_name, phone: phone, order_id: order.id)
+     ::Shipment.create(zip: zip, prefecture_id: prefecture_id, city: city, address: address, building_name: building_name, phone: phone, order_id: order.id)
   end
 end
