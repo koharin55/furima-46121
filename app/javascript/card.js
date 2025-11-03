@@ -1,5 +1,4 @@
 const pay = () => {
-  console.log("公開鍵:", window.gon?.public_key);
   const publicKey = gon.public_key
   const payjp = Payjp(publicKey)
   const elements = payjp.elements();
