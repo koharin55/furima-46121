@@ -13,7 +13,7 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
-  validates :condition_id, numericality: { other_than: 1 , message: "can't be blank"}, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
+  validates :condition_id, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
   validates :shipping_fee_id, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
   validates :prefecture_id, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
   validates :shipment_day_id, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
